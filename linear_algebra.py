@@ -51,7 +51,6 @@ def cholesky_decomp(A):
 def gauss_seidel(A, b, x0, e):
     
     #precisa testar se a sequência converge (criterio de sassenfeld)
-    #falta lidar com o erro !!!
 
     L = np.tril(A)
     R = np.triu(A, 1)
