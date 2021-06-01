@@ -1,5 +1,9 @@
 import numpy as np 
 
+def inversa(A):
+
+
+
 def lu_decomp(A):
     
     #nao checa se esse metodo pode ser aplicado na matriz
@@ -48,8 +52,8 @@ def cholesky_decomp(A):
 
     return H
 
-def gauss_seidel(A, b, x0, e):
-    
+def gauss_jacobi(A, b, x0, e):
+
     #precisa testar se a sequência converge (criterio de sassenfeld)
 
     L = np.tril(A)
@@ -57,11 +61,15 @@ def gauss_seidel(A, b, x0, e):
     C = -np.linalg.solve(L, R)
     g = np.linalg.solve(L, b)
 
-    for i in range(3000):
+    for i in range(5000):
         if(np.linalg.norm(A*x0 - b) <= e):
             break
         x0 = C@x0 + g
 
     return x0 
+
+def gauss_seidel(A, b, x0, e):
+    
+    
 
 
