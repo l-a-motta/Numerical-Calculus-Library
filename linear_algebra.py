@@ -54,6 +54,10 @@ def cholesky_decomp(A):
 
 def gauss_jacobi(A, b, x0, e):
 
+    
+
+def gauss_seidel(A, b, x0, e):
+    
     #precisa testar se a sequência converge (criterio de sassenfeld)
 
     L = np.tril(A)
@@ -67,10 +71,7 @@ def gauss_jacobi(A, b, x0, e):
         x0 = C@x0 + g
 
     return x0 
-
-def gauss_seidel(A, b, x0, e):
     
-
 def inverse(A):
     det = np.linalg.det(A)
     if det == 0:
