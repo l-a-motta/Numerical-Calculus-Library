@@ -54,6 +54,18 @@ def cholesky_decomp(A):
 
 def gauss_jacobi(A, b, x0, e):
 
+    #precisa checar se converge
+
+    D = np.diag(A)
+    C = np.identity(A.shape) - (np.linalg.solve(D, A))
+    g = np.linalg.solve(D, b)
+
+    for i in range(5000):
+        if(np.linalg.norm(A*x0 - b) <= e):
+            break
+        x0 = C@x0 + g
+
+    return x0 
     
 
 def gauss_seidel(A, b, x0, e):
@@ -71,7 +83,7 @@ def gauss_seidel(A, b, x0, e):
         x0 = C@x0 + g
 
     return x0 
-    
+
 def inverse(A):
     det = np.linalg.det(A)
     if det == 0:
