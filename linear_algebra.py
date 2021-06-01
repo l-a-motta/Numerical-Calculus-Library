@@ -56,8 +56,8 @@ def gauss_jacobi(A, b, x0, e):
 
     #precisa checar se converge
 
-    D = np.diag(A)
-    C = np.identity(A.shape) - (np.linalg.solve(D, A))
+    D = np.diag(np.diag(A))
+    C = np.identity(A.shape[0]) - (np.linalg.solve(D, A))
     g = np.linalg.solve(D, b)
 
     for i in range(5000):
