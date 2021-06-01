@@ -70,6 +70,18 @@ def gauss_jacobi(A, b, x0, e):
 
 def gauss_seidel(A, b, x0, e):
     
+
+def inverse(A):
+    det = np.linalg.det(A)
+    if det == 0:
+        raise Exeption("Erro: Determinante da matrix == 0")
+    
+    C = np.zeros(A.shape)
+    nrows, ncols = C.shape
+    for i in range(nrows):
+        for j in range(ncols):
+            C[i, j] = (-1)**(i+j)*np.linalg.det(np.delete(np.delete(A, i, axis=0), j, axis=1))
+    return C.T/det
     
 
 
